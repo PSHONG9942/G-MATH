@@ -812,7 +812,12 @@ class Game {
         cell.innerHTML = ''; 
         const tileEl = tile.element;
         
+        // 修复1：移除选中样式
         tileEl.classList.remove('selected');
+        
+        // 修复2：关键！移除手牌区的点击事件，让点击能穿透/冒泡到棋盘格子
+        // 这样点击棋盘上的牌时，才能触发 cell.onclick (handleBoardClick)
+        tileEl.onclick = null;
 
         if (isTemp) tileEl.classList.add('temp');
         else tileEl.classList.add('locked');
