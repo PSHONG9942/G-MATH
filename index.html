@@ -520,8 +520,9 @@
 const BOARD_SIZE = 15;
 const RACK_SIZE = 8; 
 
-// 牌库分布: 调整为 3:2 比例 (总数 100 张)
+// 牌库分布: 增加等于号数量 (总数 108 张)
 const TILE_DISTRIBUTION = {
+    // --- 号码牌 (共 60 张) ---
     '0': { count: 6, score: 1 },
     '1': { count: 6, score: 1 },
     '2': { count: 6, score: 2 },
@@ -532,11 +533,13 @@ const TILE_DISTRIBUTION = {
     '7': { count: 6, score: 4 },
     '8': { count: 6, score: 4 },
     '9': { count: 6, score: 4 },
+    
+    // --- 运算牌 (共 48 张) ---
     '+': { count: 7, score: 2 },
     '-': { count: 7, score: 2 },
     '×': { count: 7, score: 4 }, 
     '÷': { count: 7, score: 4 },
-    '=': { count: 22, score: 1 }
+    '=': { count: 20, score: 1 } // 大幅增加，防止卡手
 };
 
 const SPECIAL_CELLS = {
@@ -1149,4 +1152,3 @@ const game = new Game();
 </script>
 </body>
 </html>
-
